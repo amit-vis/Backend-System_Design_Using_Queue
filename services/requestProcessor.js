@@ -9,7 +9,7 @@ const processRequest = async (message) => {
     await Request.findByIdAndUpdate(requestId, { status: 'processing' });
 
     // Simulate request processing
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
 
     console.log('Request processed:', requestId);
 

@@ -19,8 +19,9 @@ module.exports.enqueueRequest = async (req, res, next) => {
     console.log('Request Enqueued:', requestData, requestLog);
 
     return res.status(200).json({
-      message: "Request Enqueued!"
-    });
+        message: "Request Enqueued!",
+        requestId: requestLog._id  // Add requestId to the response JSON
+      });
   } catch (error) {
     console.error('Enqueue Request Error:', error);
     next(error);
