@@ -1,5 +1,6 @@
 const Prometheus = require("prom-client");
 
+// function for monitor the system and get log of every action withing the diffrent interval
 const httpRequestDurationMicroseconds = new Prometheus.Histogram({
   name: "http_request_duration_ms",  // Corrected 'http_request_duretion_ms' to 'http_request_duration_ms'
   help: "Duration of HTTP requests in ms",

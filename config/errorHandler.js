@@ -1,3 +1,4 @@
+// function for get the loges for error only
 const {logger} = require("./logger");
 
 class errorHandler extends Error{

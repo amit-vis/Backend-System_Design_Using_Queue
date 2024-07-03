@@ -3,6 +3,8 @@ const Request = require('../model/request');
 const queueService = require('../services/queueService');
 const { connect } = require('../services/queueService');
 
+// function for get the test unit of the request_controller and service
+
 jest.mock('../model/request');
 jest.mock('../services/queueService');
 

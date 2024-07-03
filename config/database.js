@@ -1,3 +1,4 @@
+// stablish the connection b/w the data base
 const mongoose = require('mongoose');
 const User = require("../model/user");
 const { startProcessing } = require('../services/requestProcessor');
@@ -6,6 +7,7 @@ require("dotenv").config();
 mongoose.connect(process.env.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
+
 
 db.on("error", console.error.bind(console, "error in connecting to db"));
 

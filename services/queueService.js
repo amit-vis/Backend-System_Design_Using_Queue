@@ -2,6 +2,7 @@ const amqp = require('amqplib');
 
 let channel = null; // Define a global variable to hold the channel
 
+// established the connection of rabbitMQ database
 async function connect() {
   try {
     const connection = await amqp.connect('amqp://localhost');
@@ -13,6 +14,7 @@ async function connect() {
   }
 }
 
+// here we have creating the queue
 const createQueue = async (qname) => {
   try {
     if (!channel) {
@@ -25,6 +27,7 @@ const createQueue = async (qname) => {
   }
 };
 
+// here sending the queue the queue in channel
 const sendToQueue = async (qname, message) => {
   try {
     if (!channel) {
@@ -36,6 +39,8 @@ const sendToQueue = async (qname, message) => {
     console.error('Error sending to queue:', error);
   }
 };
+
+// function is basically acknowledge that message has been sent
 
 const consumeQueue = async (qname, callback) => {
   try {

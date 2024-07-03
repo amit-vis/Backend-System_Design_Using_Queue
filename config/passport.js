@@ -3,6 +3,7 @@ const ExtractJWT = require("passport-jwt").ExtractJwt;
 const JWTStrategy = require("passport-jwt").Strategy;
 const User = require("../model/user");
 
+// function for authentication the route
 const opts = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.SECRET_KEY
@@ -10,7 +11,6 @@ const opts = {
 
 passport.use(new JWTStrategy(opts, async (jwt_payload, done) => {
     try {
-        // Check if the JWT is blacklisted
 
         const user = await User.findById(jwt_payload._id);
         if (user) {

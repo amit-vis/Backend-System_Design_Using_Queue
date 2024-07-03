@@ -1,6 +1,7 @@
 const Request = require("../model/request");
 const queueService = require("../services/queueService");
 
+// function for enqueue the request
 module.exports.enqueueRequest = async (req, res, next) => {
   try {
     const qname = `queue_${req.user._id}`;

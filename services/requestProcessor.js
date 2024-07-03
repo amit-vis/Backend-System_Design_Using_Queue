@@ -1,6 +1,7 @@
 const queueService = require("./queueService");
 const Request = require("../model/request");
 
+// here updating the status for all scenerio
 const processRequest = async (message) => {
   try {
     const { requestId, requestData } = JSON.parse(message);
@@ -21,6 +22,7 @@ const processRequest = async (message) => {
   }
 };
 
+// function for processing the request of the user
 const startProcessing = async (userId) => {
   const qname = `queue_${userId}`;
   await queueService.createQueue(qname);
